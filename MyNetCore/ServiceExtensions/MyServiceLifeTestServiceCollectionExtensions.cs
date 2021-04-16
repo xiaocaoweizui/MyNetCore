@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MyNetCore.ServiceLifeTime;
-using MyNetCore.DependencyInjection;
 
 namespace MyNetCore.ServiceExtention
 {
@@ -20,8 +19,23 @@ namespace MyNetCore.ServiceExtention
         /// <returns></returns>
         public static IServiceCollection AddServiceLifeTimeTest(this IServiceCollection services)
         {
-             services.AddSingleton<ISingletonService>(new SingletonService());
-            services.AddSingleton<IService>(new MyService());
+            //花式注册
+            services.AddSingleton<ISingletonService>(new SingletonService());
+            services.AddScoped<IScopeService, ScopeService>();
+           // services.AddTransient<ITransientService, TransientService>();
+
+            services.Add(new ServiceDescriptor(typeof(ITransientService), typeof(TransientService), ServiceLifetime.Transient));
+
+
+            services.AddSingleton<IService, MyService>();
+
+            var provider = services.BuildServiceProvider();
+            Console.WriteLine($"主管道 ServiceProvider 的 hashCode :{ provider.GetHashCode()}");
+
+          
+            Console.WriteLine($"主管道 ServiceProvider 的 ISingletonService 的 hashCode :{   provider.GetService<ISingletonService>().GetHashCode()}");
+            Console.WriteLine($"主管道 ServiceProvider 的 IScopeService 的 hashCode :{   provider.GetService<IScopeService>().GetHashCode()}");
+            Console.WriteLine($"主管道 ServiceProvider 的 ITransientService 的 hashCode :{   provider.GetService<ITransientService>().GetHashCode()}");
 
             return services;
         }

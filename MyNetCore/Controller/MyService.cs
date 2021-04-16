@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MyNetCore.DependencyInjection
+namespace MyNetCore
 {
     public interface IService { 
      void DoSomething()

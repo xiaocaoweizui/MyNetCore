@@ -31,7 +31,9 @@ namespace MyNetCore
 
             Console.WriteLine("StartUp:ConfigureServices");
 
-            var lifeTimeTest = new MyServiceLifeTest();
+           // var lifeTimeTest = new MyServiceLifeTest();
+           //自己定义的扩展方法
+            //services.AddServiceLifeTimeTest();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

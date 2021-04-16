@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MyNetCore.ServiceLifeTime;
+using MyNetCore.DependencyInjection;
 
 namespace MyNetCore.ServiceExtention
 {
@@ -20,7 +21,7 @@ namespace MyNetCore.ServiceExtention
         public static IServiceCollection AddServiceLifeTimeTest(this IServiceCollection services)
         {
              services.AddSingleton<ISingletonService>(new SingletonService());
-
+            services.AddSingleton<IService>(new MyService());
 
             return services;
         }

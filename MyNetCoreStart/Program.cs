@@ -17,6 +17,7 @@ namespace MyNetCoreStart
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
+                 //查看 官方文档：https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.host.createdefaultbuilder?view=dotnet-plat-ext-5.0
                  Host.CreateDefaultBuilder(args)
                      .ConfigureAppConfiguration(builder =>
                      {
@@ -36,6 +37,7 @@ namespace MyNetCoreStart
                      .ConfigureWebHostDefaults(webBuilder =>
                      {
                     //注册应用程序必要的几个组件，如配置的组件、容器的组件
+                    //查看代码：使用默认Kestrel进行http监听，并默认使用IIS集成，核心需要调用的
                     Console.WriteLine("ConfigureWebHostDefaults ");
                          webBuilder.UseStartup<Startup>();
 

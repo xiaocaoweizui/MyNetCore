@@ -21,49 +21,49 @@ namespace MyNetCoreStart
                  Host.CreateDefaultBuilder(args)
                      .ConfigureAppConfiguration(builder =>
                      {
-                    //配置自己的配置文件，供应用读取
-                    Console.WriteLine("ConfigureAppConfiguration ");
+                         //配置自己的配置文件，供应用读取
+                         Console.WriteLine("ConfigureAppConfiguration ");
                      })
                      .ConfigureServices(services =>
                      {
-                    //往容器注入应用的组件
-                    Console.WriteLine("ConfigureServices ");
+                         //往容器注入应用的组件
+                         Console.WriteLine("ConfigureServices ");
                      })
                      .ConfigureHostConfiguration(builder =>
                      {
-                    //配置应用启动时需要的配置，如 需要监听的端口和URL,可以嵌入自己的配置
-                    Console.WriteLine("ConfigureHostConfiguration ");
+                         //配置应用启动时需要的配置，如 需要监听的端口和URL,可以嵌入自己的配置
+                         Console.WriteLine("ConfigureHostConfiguration ");
                      })
                      .ConfigureWebHostDefaults(webBuilder =>
                      {
-                    //注册应用程序必要的几个组件，如配置的组件、容器的组件
-                    //查看代码：使用默认Kestrel进行http监听，并默认使用IIS集成，核心需要调用的
-                    Console.WriteLine("ConfigureWebHostDefaults ");
+                         //注册应用程序必要的几个组件，如配置的组件、容器的组件
+                         //查看代码：使用默认Kestrel进行http监听，并默认使用IIS集成，核心需要调用的
+                         Console.WriteLine("ConfigureWebHostDefaults ");
                          webBuilder.UseStartup<Startup>();
 
-                    //webBuilder.ConfigureServices(services =>
-                    //{
-                    //    Console.WriteLine("StartUp:ConfigureServices");
-                    //    services.AddRazorPages();
-                    //});
-                    //webBuilder.Configure(app =>
-                    //{
-                    //    //用于注入自己的中间件
-                    //    Console.WriteLine("StartUp:Configure");
-                    //    app.UseHttpsRedirection();
-                    //    app.UseStaticFiles();
-                    //    //app.UseWebSockets()
+                         //webBuilder.ConfigureServices(services =>
+                         //{
+                         //    Console.WriteLine("StartUp:ConfigureServices");
+                         //    services.AddRazorPages();
+                         //});
+                         //webBuilder.Configure(app =>
+                         //{
+                         //    //用于注入自己的中间件
+                         //    Console.WriteLine("StartUp:Configure");
+                         //    app.UseHttpsRedirection();
+                         //    app.UseStaticFiles();
+                         //    //app.UseWebSockets()
 
-                    //    app.UseRouting();
+                         //    app.UseRouting();
 
-                    //    app.UseAuthorization();
+                         //    app.UseAuthorization();
 
-                    //    app.UseEndpoints(endpoints =>
-                    //    {
-                    //        endpoints.MapRazorPages();
-                    //    });
-                    //});
+                         //    app.UseEndpoints(endpoints =>
+                         //    {
+                         //        endpoints.MapRazorPages();
+                         //    });
+                         //});
 
-                });
+                     });
     }
 }

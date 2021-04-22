@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -55,6 +56,11 @@ namespace MyNetCore
             {
                 //Ê¹ÓÃControllersµÄÓ³Éä
                 endpoints.MapControllers();
+
+                endpoints.MapGet("/StartDemo", async context =>
+                {
+                    await context.Response.WriteAsync("Hello World!");
+                });
             });
         }
     }

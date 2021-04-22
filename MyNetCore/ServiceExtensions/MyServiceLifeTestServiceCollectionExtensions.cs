@@ -19,10 +19,13 @@ namespace MyNetCore.ServiceExtention
         /// <returns></returns>
         public static IServiceCollection AddServiceLifeTimeTest(this IServiceCollection services)
         {
-            //花式注册
+            //花式注册，注册接口实现的实例：对应ServiceDescriptor.ImplementationInstance
             services.AddSingleton<ISingletonService>(new SingletonService());
             services.AddScoped<IScopeService, ScopeService>();
-           // services.AddTransient<ITransientService, TransientService>();
+            // services.AddTransient<ITransientService, TransientService>();
+
+            //注册接口实现的工厂：对应ServiceDescriptor.ImplementationFactory
+            // services.AddTransient<ITransientService>((t) => { return new TransientService(); });
 
             services.Add(new ServiceDescriptor(typeof(ITransientService), typeof(TransientService), ServiceLifetime.Transient));
 

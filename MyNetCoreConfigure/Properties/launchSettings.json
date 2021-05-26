@@ -1,0 +1,32 @@
+{
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:9004",
+      "sslPort": 44326
+    }
+  },
+  "profiles": {
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "MyNetCoreConfigure": {
+      "commandName": "Project",
+      "commandLineArgs": "test3=test3 --t=t",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "Section1__MyKey2": "MyKey2",
+        "test5": "test5",
+        "ASPNETCORE_TEST4": "test4",
+        "Section1__Section2__MyKey3": "MyKey3",
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:5001;http://localhost:5000"
+    }
+  }
+}

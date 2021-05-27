@@ -21,6 +21,9 @@ namespace MyNetCoreConfigureExtention
                 .ConfigureAppConfiguration(builder=>
                 {
                     builder.Add(new MyConfigureSource());
+                    //扩展方式：使用自己的配置类
+                  //  builder.AddMyConfigure();
+
                     var root = builder.Build();
 
                     Console.WriteLine($"DateTime：{root["DateTime"]}");

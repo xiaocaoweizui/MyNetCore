@@ -47,14 +47,16 @@ namespace MyNetCoreConfigure
             Console.WriteLine($"MyKey3：{section2["MyKey3"]}");
             
              
-            //文件中读取
+            //myseetings.json文件中读取
             Console.WriteLine($"MyKey1：{Configuration["MyKey1"]}"); 
             Console.ReadKey();
             Console.WriteLine($"MyKey1：{Configuration["MyKey1"]}");
-        
 
-            
-
+            //appsetting.json文件中读取
+            Console.WriteLine($"MySection：{Configuration["MySection"]}");
+            Console.WriteLine($"MySection2.MaxCount：{Configuration.GetSection("MySection2")["MaxCount"]}");
+            //奇怪了，为什么下面这句获取不到值？？
+            Console.WriteLine($"OrderSerivce.MaxCount：{Configuration.GetSection("OrderSerivce")["MaxCount"]}");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

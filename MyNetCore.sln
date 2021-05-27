@@ -5,7 +5,11 @@ VisualStudioVersion = 16.0.30320.27
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyNetCore", "MyNetCore\MyNetCore.csproj", "{F4BEEF3E-C00F-4780-A306-F57669236C47}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNetCoreStart", "MyNetCoreStart\MyNetCoreStart.csproj", "{E448E143-57D5-4EA1-AE71-BC75EB59DF1E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyNetCoreStart", "MyNetCoreStart\MyNetCoreStart.csproj", "{E448E143-57D5-4EA1-AE71-BC75EB59DF1E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNetCoreConfigure", "MyNetCoreConfigure\MyNetCoreConfigure.csproj", "{C4FF5EA6-FC97-4256-B2E1-ADC76A8B57C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNetCoreConfigureExtention", "MyNetCoreConfigureExtention\MyNetCoreConfigureExtention.csproj", "{B0142338-E182-4C0F-8E47-5BE92284118C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{E448E143-57D5-4EA1-AE71-BC75EB59DF1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E448E143-57D5-4EA1-AE71-BC75EB59DF1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E448E143-57D5-4EA1-AE71-BC75EB59DF1E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4FF5EA6-FC97-4256-B2E1-ADC76A8B57C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4FF5EA6-FC97-4256-B2E1-ADC76A8B57C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4FF5EA6-FC97-4256-B2E1-ADC76A8B57C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4FF5EA6-FC97-4256-B2E1-ADC76A8B57C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0142338-E182-4C0F-8E47-5BE92284118C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0142338-E182-4C0F-8E47-5BE92284118C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0142338-E182-4C0F-8E47-5BE92284118C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0142338-E182-4C0F-8E47-5BE92284118C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

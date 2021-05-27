@@ -47,7 +47,7 @@ namespace MyNetCoreConfigureExtention
             services.AddSingleton<IPhoneSerivce, PhoneSerivce>();
 
             //以上代码也可以用静态扩展方法提炼
-
+            //services.AddOrderService(Configuration.GetSection("MySection2"));
 
         }
 

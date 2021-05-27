@@ -12,8 +12,13 @@ namespace Microsoft.Extensions.Configuration
     {
         public static IServiceCollection AddOrderService(this IServiceCollection services,IConfiguration configuration)
         {
-            services.Configure<OrderSerivceOptions>(configuration.GetSection("MySection2"));
-          
+            services.Configure<OrderSerivceOptions>(configuration);
+            //下面这句代码和上面这句代码等同
+            //services.AddOptions<OrderSerivceOptions>().Configure(options =>
+            //{
+            //    configuration.Bind(options);
+            //});
+
             //动态修改配置信息
             services.PostConfigure<OrderSerivceOptions>(options =>
           {

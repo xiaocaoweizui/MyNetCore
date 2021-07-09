@@ -7,9 +7,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyNetCore", "MyNetCore\MyNe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyNetCoreStart", "MyNetCoreStart\MyNetCoreStart.csproj", "{E448E143-57D5-4EA1-AE71-BC75EB59DF1E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNetCoreConfigure", "MyNetCoreConfigure\MyNetCoreConfigure.csproj", "{C4FF5EA6-FC97-4256-B2E1-ADC76A8B57C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyNetCoreConfigure", "MyNetCoreConfigure\MyNetCoreConfigure.csproj", "{C4FF5EA6-FC97-4256-B2E1-ADC76A8B57C5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNetCoreConfigureExtention", "MyNetCoreConfigureExtention\MyNetCoreConfigureExtention.csproj", "{B0142338-E182-4C0F-8E47-5BE92284118C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyNetCoreConfigureExtention", "MyNetCoreConfigureExtention\MyNetCoreConfigureExtention.csproj", "{B0142338-E182-4C0F-8E47-5BE92284118C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyNetCoreWithAutofac", "MyNetCoreWithAutofac\MyNetCoreWithAutofac.csproj", "{4566694C-BB88-49DB-8AD4-0C0AAFD6B401}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{B0142338-E182-4C0F-8E47-5BE92284118C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0142338-E182-4C0F-8E47-5BE92284118C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0142338-E182-4C0F-8E47-5BE92284118C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4566694C-BB88-49DB-8AD4-0C0AAFD6B401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4566694C-BB88-49DB-8AD4-0C0AAFD6B401}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4566694C-BB88-49DB-8AD4-0C0AAFD6B401}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4566694C-BB88-49DB-8AD4-0C0AAFD6B401}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

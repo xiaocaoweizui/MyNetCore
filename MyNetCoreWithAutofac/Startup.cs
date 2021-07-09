@@ -1,16 +1,18 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Autofac;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using MyNetCore.ServiceExtention;
+using MyNetCoreWithAutofac.DITest;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Threading.Tasks;
 
-namespace MyNetCore
+namespace MyNetCoreWithAutofac
 {
     public class Startup
     {
@@ -24,19 +26,13 @@ namespace MyNetCore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //用于api的路由注册
+            services.AddRazorPages();
             services.AddControllers();
-            services.AddMvc();
-
-            var lifeTimeTest = new MyServiceLifeTest();
-           //自己定义的扩展方法
-           // services.AddServiceLifeTimeTest();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -48,14 +44,32 @@ namespace MyNetCore
                 app.UseHsts();
             }
 
-            //使用路由组件
+            app.UseHttpsRedirection();
+            app.UseStaticFiles();
+
             app.UseRouting();
-            app.UseAuthentication();
+
+            app.UseAuthorization();
+
             app.UseEndpoints(endpoints =>
             {
-                //使用Controllers的映射
+                endpoints.MapRazorPages();
                 endpoints.MapControllers();
             });
         }
+
+        public void ConfigureContainer(ContainerBuilder containerBuilder)
+        {
+            containerBuilder.RegisterType<Test>().As<ITest>().InstancePerLifetimeScope().AsImplementedInterfaces();
+        }
+
+        //    Assembly service = Assembly.Load("MyNetCoreWithAutofac");
+        //    Assembly iservice = Assembly.Load("MyNetCoreWithAutofac");
+        //    containerBuilder.RegisterAssemblyTypes(service, iservice)
+        //    .Where(t => t.FullName.EndsWith("Service") && !t.IsAbstract) //类名以service结尾，且类型不能是抽象的　
+        //        .InstancePerLifetimeScope() //生命周期，，
+        //        .AsImplementedInterfaces()
+        //    .PropertiesAutowired(); //属性注入
+        //}
     }
 }

@@ -26,7 +26,10 @@ namespace MyNetCoreConfigure
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-          
+            //appsetting.json文件中读取
+            Console.WriteLine($"MySection：{Configuration["MySection"]}");
+            Console.WriteLine($"MySection2.MaxCount：{Configuration.GetSection("MySection2")["MaxCount"]}");
+
             //问题一：此处用Configuration 能否获取到配置？
             Console.WriteLine($"A2：{Configuration["A"]}");
         
@@ -52,9 +55,7 @@ namespace MyNetCoreConfigure
             Console.ReadKey();
             Console.WriteLine($"MyKey1：{Configuration["MyKey1"]}");
 
-            //appsetting.json文件中读取
-            Console.WriteLine($"MySection：{Configuration["MySection"]}");
-            Console.WriteLine($"MySection2.MaxCount：{Configuration.GetSection("MySection2")["MaxCount"]}");
+   
             //奇怪了，为什么下面这句获取不到值？？
             Console.WriteLine($"OrderSerivce.MaxCount：{Configuration.GetSection("OrderSerivce")["MaxCount"]}");
         }

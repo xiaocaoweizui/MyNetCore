@@ -33,7 +33,9 @@ namespace MyNetCore.ServiceExtention
             services.AddSingleton<IService, MyService>();
 
             var provider = services.BuildServiceProvider();
-            Console.WriteLine($"主管道 ServiceProvider 的 hashCode :{ provider.GetHashCode()}");
+            provider.GetService<ISingletonService>();
+
+           Console.WriteLine($"主管道 ServiceProvider 的 hashCode :{ provider.GetHashCode()}");
 
           
             Console.WriteLine($"主管道 ServiceProvider 的 ISingletonService 的 hashCode :{   provider.GetService<ISingletonService>().GetHashCode()}");

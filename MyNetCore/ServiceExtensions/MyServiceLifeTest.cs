@@ -52,22 +52,21 @@ namespace MyNetCore.ServiceExtention
                 IOrder order4 = childProvider2.GetService<IOrder>();
                 //Order4被释放了没？
 
+                ////通过比较对象的哈希值对比
+                //Console.WriteLine($"order1==order2:{order1.GetHashCode()==order2.GetHashCode()}");
 
-                //通过比较对象的哈希值对比
-                Console.WriteLine($"order1==order2:{order1.GetHashCode()==order2.GetHashCode()}");
+                //Console.WriteLine($"order1的hashCode:{order1.GetHashCode() }");
+                //Console.WriteLine($"order2的hashCode:{order2.GetHashCode() }");
+                //Console.WriteLine($"order3的hashCode:{order3.GetHashCode() }");
+                //Console.WriteLine($"order4的hashCode:{order4.GetHashCode() }");
 
-                Console.WriteLine($"order1的hashCode:{order1.GetHashCode() }");
-                Console.WriteLine($"order2的hashCode:{order2.GetHashCode() }");
-                Console.WriteLine($"order3的hashCode:{order3.GetHashCode() }");
-                Console.WriteLine($"order4的hashCode:{order4.GetHashCode() }");
+                //Console.WriteLine($"book1的hashCode:{book1.GetHashCode() }");
+                //Console.WriteLine($"book2的hashCode:{book2.GetHashCode() }");
+                //Console.WriteLine($"book3的hashCode:{book3.GetHashCode() }");
 
-                Console.WriteLine($"book1的hashCode:{book1.GetHashCode() }");
-                Console.WriteLine($"book2的hashCode:{book2.GetHashCode() }");
-                Console.WriteLine($"book3的hashCode:{book3.GetHashCode() }");
-
-                Console.WriteLine($"product1的hashCode:{product1.GetHashCode() }");
-                Console.WriteLine($"product2的hashCode:{product2.GetHashCode() }");
-                Console.WriteLine($"product3的hashCode:{product3.GetHashCode() }");
+                //Console.WriteLine($"product1的hashCode:{product1.GetHashCode() }");
+                //Console.WriteLine($"product2的hashCode:{product2.GetHashCode() }");
+                //Console.WriteLine($"product3的hashCode:{product3.GetHashCode() }");
             }
         }
     }

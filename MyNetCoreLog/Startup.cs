@@ -1,17 +1,16 @@
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using MyNetCore.ServiceExtention;
 
-namespace MyNetCore
+namespace MyNetCoreLog
 {
     public class Startup
     {
@@ -23,45 +22,49 @@ namespace MyNetCore
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            //用于api的路由注册
-            services.AddControllers();
-            services.AddMvc();
+            //注册logging的服务
+            // services.AddLogging();
 
-            var lifeTimeTest = new MyServiceLifeTest();
-           //自己定义的扩展方法
-           // services.AddServiceLifeTimeTest();
+     
+            // 只使用当前扩展的日志方式
+            services.AddMyLogger(Configuration.GetSection("ExtendLogging"));
+
+            LoggerTest(services);
+        }
+
+        public void LoggerTest(IServiceCollection services)
+        {
+            ServiceProvider provider = services.BuildServiceProvider();
+            var logger = provider.GetRequiredService<ILogger<Startup>>();
+            logger.LogInformation("LogInformation消息");
+            logger.LogError("LogError消息");
+            logger.LogDebug("LogDebug消息");
+            logger.LogTrace("LogTrace消息");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            else
-            {
-                app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
-                app.UseHsts();
-            }
 
-            //使用路由组件
             app.UseRouting();
-            app.UseAuthentication();
+
             app.UseEndpoints(endpoints =>
             {
-                //使用Controllers的映射
-                endpoints.MapControllers();
-
-                endpoints.MapGet("/StartDemo", async context =>
+                endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Hello World!");
                 });
             });
+
+         
+
         }
     }
 }

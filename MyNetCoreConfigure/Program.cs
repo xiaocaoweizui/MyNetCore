@@ -33,10 +33,6 @@ namespace MyNetCoreConfigure
                      { "Section1:C","c"}
                  });
 
-                 //命令的替换,此处的替换会报错，提示 -t 不存在，那么应该在哪里替换呢？
-                 //var mapper = new Dictionary<string, string> { { "-t", "test3" } };
-                 //builder.AddCommandLine(args, mapper);
-
                  IConfigurationRoot root = builder.Build();
                  Console.WriteLine($"A：{root["A"]}");
                  Console.WriteLine($"B：{root["B"]}");
@@ -51,7 +47,7 @@ namespace MyNetCoreConfigure
                  //    Console.WriteLine($"MyKey1：{root["MyKey1"]}");
                  //}, root);
 
-                 //用文本编辑器打开，为什么输出两次？
+               
                  ChangeToken.OnChange(() => root.GetReloadToken(), () =>
                  {
                      Console.WriteLine($"MyKey1：{root["MyKey1"]}");

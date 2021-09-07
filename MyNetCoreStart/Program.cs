@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,33 +16,32 @@ namespace MyNetCoreStart
         {
             CreateHostBuilder(args).Build().Run();
         }
-        //²é¿´ ¹Ù·½ÎÄµµ£ºhttps://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.host.createdefaultbuilder?view=dotnet-plat-ext-5.0
+        //ï¿½é¿´ ï¿½Ù·ï¿½ï¿½Äµï¿½ï¿½ï¿½https://docs.microsoft.com/zh-cn/dotnet/api/microsoft.extensions.hosting.host.createdefaultbuilder?view=dotnet-plat-ext-5.0
         public static IHostBuilder CreateHostBuilder(string[] args) =>
                  Host.CreateDefaultBuilder(args)
             .UseServiceProviderFactory(new AutofacServiceProviderFactory())
                      .ConfigureAppConfiguration(builder =>
                      {
-                         //ÅäÖÃ×Ô¼ºµÄÅäÖÃÎÄ¼þ£¬¹©Ó¦ÓÃ¶ÁÈ¡
+                         //ï¿½ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã¶ï¿½È¡
                          Console.WriteLine("ConfigureAppConfiguration ");
                      })
                      .ConfigureServices(services =>
                      {
-                         //ÍùÈÝÆ÷×¢ÈëÓ¦ÓÃµÄ×é¼þ
+                         //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½Ó¦ï¿½Ãµï¿½ï¿½ï¿½ï¿½
                          Console.WriteLine("ConfigureServices ");
                      })
                      .ConfigureHostConfiguration(builder =>
                      {
-                         //ÅäÖÃÓ¦ÓÃÆô¶¯Ê±ÐèÒªµÄÅäÖÃ£¬Èç ÐèÒª¼àÌýµÄ¶Ë¿ÚºÍURL,¿ÉÒÔÇ¶Èë×Ô¼ºµÄÅäÖÃ
+                         //ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½ ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Ä¶Ë¿Úºï¿½URL,ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
                          Console.WriteLine("ConfigureHostConfiguration ");
                      })
                      .ConfigureWebHostDefaults(webBuilder =>
                      {
-                         //×¢²áÓ¦ÓÃ³ÌÐò±ØÒªµÄ¼¸¸ö×é¼þ£¬ÈçÅäÖÃµÄ×é¼þ¡¢ÈÝÆ÷µÄ×é¼þ
-                         //²é¿´´úÂë£ºÊ¹ÓÃÄ¬ÈÏKestrel½øÐÐhttp¼àÌý£¬²¢Ä¬ÈÏÊ¹ÓÃIIS¼¯³É£¬ºËÐÄÐèÒªµ÷ÓÃµÄ
+                         //×¢ï¿½ï¿½Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½Òªï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+                         //ï¿½é¿´ï¿½ï¿½ï¿½ë£ºÊ¹ï¿½ï¿½Ä¬ï¿½ï¿½Kestrelï¿½ï¿½ï¿½ï¿½httpï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Ê¹ï¿½ï¿½IISï¿½ï¿½ï¿½É£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½Ãµï¿½
                          Console.WriteLine("ConfigureWebHostDefaults ");
                          webBuilder.UseStartup<Startup>();
 
-                         //StartupÀà¿ÉÒÔÓÃ
                          //webBuilder.ConfigureServices(services =>
                          //{
                          //    Console.WriteLine("StartUp:ConfigureServices");
@@ -50,7 +49,7 @@ namespace MyNetCoreStart
                          //});
                          //webBuilder.Configure(app =>
                          //{
-                         //    //ÓÃÓÚ×¢Èë×Ô¼ºµÄÖÐ¼ä¼þ
+                         //    //ç”¨äºŽæ³¨å…¥è‡ªå·±çš„ä¸­é—´ä»¶
                          //    Console.WriteLine("StartUp:Configure");
                          //    app.UseHttpsRedirection();
                          //    app.UseStaticFiles();

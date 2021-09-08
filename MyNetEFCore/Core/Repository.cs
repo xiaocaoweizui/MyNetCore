@@ -76,13 +76,27 @@ namespace MyNetEFCore
         }
     }
 
-
+    /// <summary>
+    /// 仓储基类
+    /// </summary>
+    /// <typeparam name="TEntity"></typeparam>
+    /// <typeparam name="TKey"></typeparam>
+    /// <typeparam name="TDbContext"></typeparam>
     public abstract class Repository<TEntity, TKey, TDbContext> : Repository<TEntity, TDbContext>, IRepository<TEntity, TKey> where TEntity : Entity<TKey> where TDbContext : EFContext
     {
+        /// <summary>
+        /// 构造函数
+        /// </summary>
+        /// <param name="context"></param>
         public Repository(TDbContext context) : base(context)
         {
         }
 
+        /// <summary>
+        /// 删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public virtual bool Delete(TKey id)
         {
             var entity = DbContext.Find<TEntity>(id);
@@ -94,6 +108,12 @@ namespace MyNetEFCore
             return true;
         }
 
+        /// <summary>
+        /// 异步删除
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public virtual async Task<bool> DeleteAsync(TKey id, CancellationToken cancellationToken = default)
         {
             var entity = await DbContext.FindAsync<TEntity>(id, cancellationToken);
@@ -105,11 +125,22 @@ namespace MyNetEFCore
             return true;
         }
 
+        /// <summary>
+        /// 获取
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public virtual TEntity Get(TKey id)
         {
             return DbContext.Find<TEntity>(id);
         }
 
+        /// <summary>
+        /// 异步获取
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="cancellationToken"></param>
+        /// <returns></returns>
         public virtual async Task<TEntity> GetAsync(TKey id, CancellationToken cancellationToken = default)
         {
             return await DbContext.FindAsync<TEntity>(id, cancellationToken);

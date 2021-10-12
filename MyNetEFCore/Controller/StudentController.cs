@@ -30,6 +30,8 @@ namespace MyNetEFCore.Controller
         {
 
             this._dbContext.Add(student);
+
+            return Content("1");
         }
     }
 }

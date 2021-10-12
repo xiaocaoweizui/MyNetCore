@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!--此处为proto文件的路径，编辑器会去查找对应的proto文件并生成代码-->
+    <!--注意此处的 GrpcServices 属性需要设置为Server，如果是客户端的话需要设置为Client-->
+    <Protobuf Include="Proto\book.proto" GrpcServices="Server" />
+  </ItemGroup>
+</Project>
